@@ -9,8 +9,8 @@
     - "{{ velociraptor_log_dir }}"
 
 - name: Download velociraptor binary
-  copy:
-    src: "files/{{ velociraptor-debian }}"
+  get_url:
+    url: "{{ velociraptor_msi_url_debian }}"
     dest: "{{ velociraptor_dir }}/velociraptor"
     mode: '0750'
 

@@ -9,7 +9,7 @@
 
 - name: Download velociraptor binary
   get_url:
-    src: "files/{{ velociraptor-debian }}"
+    url: "{{ velociraptor_msi_url_debian }}"
     dest: "{{ velociraptor_dir }}/velociraptor"
     mode: '0750'
 
@@ -62,20 +62,30 @@
   local_action: copy content="{{clientconfig.stdout }}" dest="{{ role_path}}/files/{{ velociraptor_client_config }}"
   when: clientconfig_exists.stat.exists != true
 
-- name: install pip3
+- name: install python3-venv
   apt:
-    name: python3-pip
+    name: python3-venv
     update_cache: yes
 
-- name: pip install pexpect
+- name: Create virtual environment for pexpect
+  command: python3 -m venv {{ velociraptor_dir }}/venv
+  args:
+    creates: "{{ velociraptor_dir }}/venv"
+
+- name: Install pexpect in virtual environment
   pip:
     name: pexpect
+    virtualenv: "{{ velociraptor_dir }}/venv"
 
 - name: Case insensitive password string match
   expect:
-    command: "/opt/velociraptor/velociraptor --config /etc/velociraptor/velociraptor.server.config.yml user add {{ velociraptor_admin_user }}"
+    command: "{{ velociraptor_dir }}/velociraptor --config {{ velociraptor_config_dir }}/velociraptor.server.config.yml user add {{ velociraptor_admin_user }} --role administrator"
     responses:
       (?i)Enter user's password: "{{ velociraptor_admin_password }}"
+  environment:
+    PATH: "{{ velociraptor_dir }}/venv/bin:{{ ansible_env.PATH }}"
+  vars:
+    ansible_python_interpreter: "{{ velociraptor_dir }}/venv/bin/python"
 
 - name: install velociraptor systemd configuration
   template:
