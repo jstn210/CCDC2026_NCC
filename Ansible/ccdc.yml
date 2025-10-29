@@ -1,8 +1,24 @@
-- name: Incident Response (Linux)
+- name: Incident Response (Linux Debian)
   hosts:
     - linux
   tags:
-    - ir
+    - ir_linux_debian
+  roles:
+    - ir_linux
+
+- name: Incident Response (Linux RHEL)
+  hosts:
+    - linux
+  tags:
+    - ir_linux_rhel
+  roles:
+    - ir_linux
+
+- name: Incident Response Server
+  hosts:
+    - linux
+  tags:
+    - ir_linux_server
   roles:
     - ir_linux
 

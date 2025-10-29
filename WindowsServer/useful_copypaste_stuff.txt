@@ -1,0 +1,6 @@
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
+
+iwr https://raw.githubusercontent.com/sonarpinger/CCDC/refs/heads/master/AD/other_scripts/silent_install_git.ps1 | iex
+
+# not powershell 5.0 or 4.0
+(New-Object System.Net.WebClient).DownloadFile("https://example.com/archive.zip", "C:\Windows\Temp\archive.zip")

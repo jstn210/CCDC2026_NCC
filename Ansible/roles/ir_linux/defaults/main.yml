@@ -1,5 +1,3 @@
-client: false
-server: false
 velociraptor_dir: /opt/velociraptor
 velociraptor_config_dir: /etc/velociraptor
 velociraptor_log_dir: /var/log/velociraptor

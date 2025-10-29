@@ -1,36 +1,39 @@
-# Incident Response
+### https://github.com/fabacab/awesome-cybersecurity-blueteam.git
 
-# Ansible Setup
-## ssh, share key
-ssh-keygen -t ed25519 -C "" -N ""
-cat ~/.ssh/id_ed25519.pub
+## Links to other tools
+https://github.com/aquasecurity/trivy
+https://github.com/JPCERTCC/LogonTracer.git
+https://github.com/PlumHound/PlumHound
+https://github.com/jtesta/ssh-audit/releases/download/v3.3.0/ssh-audit-3.3.0.tar.gz
+https://github.com/ansible-lockdown
+https://www.zdnet.com/article/how-to-install-and-configure-fail2ban-for-even-more-ssh-security/
+https://github.com/kunai-project/kunai
 
-## use pip
-apt install python3.11-venv
+## Kubernetes 
+https://github.com/aquasecurity/kube-bench
 
-## venv
-python3 -m venv venv
-source venv/bin/activate
-pip install ansible
+## Honeypots
+https://github.com/skeeto/endlessh
+https://github.com/shizunge/endlessh-go
 
-## config
-1. adjust hosts.ini with appropriate hosts and make sure the users are right. set ir_headnode group to localhost ansible_connection=local
-2. make sure ssh key path in config is right
-3. check ansible connection. ansible [group_name] -m ping -i [inventory file]
+## Documentation
+https://trivy.dev/latest/tutorials/overview/
+https://trivy.dev/latest/docs/
+https://www.ossec.net/docs/
 
-# Velociraptor Setup
-## on host node, run server setup script on the ir_headnode (local)
-ansible-playbook -i hosts.ini ccdc.yml --limit ir_headnode -e "server:true"
+## soc rules
+https://abuse.ch
+https://github.com/jatrost/awesome-detection-rules.git
 
-## run client on debian group
-## this doesnt work yet
-ansible-playbook -i hosts.ini ccdc.yml -e "client:true" --limit debian 
+## Wazuh
+https://github.com/zakkg3/wazuh-agent-container
+https://github.com/autonubil/go-wazuh
 
-Tools and scripts for incident response
+## Other tools if resources are available
+https://github.com/StamusNetworks/SELKS
+https://github.com/lawrencesystems/graylog
+https://github.com/spaceraccoon/manuka
+https://benheater.com/proxmox-opencti-in-linux-container-lxc/
+https://github.com/weslambert/velociraptor-docker
+https://github.com/wazuh/wazuh-docker
 
-TODO:
-- windows event logs artifact 
-- velociraptor syslog receive
-- good velocirpator oconfig
-- include action plugin has been removed
-- velociraptor config is auto made and then adjusted with ansible script i think

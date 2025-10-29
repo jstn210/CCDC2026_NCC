@@ -1,3 +1,0 @@
----
-- include_tasks: linux_client_debian.yml
-- include_tasks: linux_client_rhel.yml
