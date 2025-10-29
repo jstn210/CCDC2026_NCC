@@ -1,2 +1,2 @@
 ---
-- include: windows_client.yml
+- include_tasks: windows_client.yml

@@ -1,6 +1,6 @@
 ---
-- include: linux_client.yml
+- import_tasks: linux_client.yml
   when: client == true and ansible_os_family != "Windows"
 
-- include: server.yml
+- import_tasks: server.yml
   when: server == true

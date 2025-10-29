@@ -94,9 +94,6 @@ GUI:
     rR1mgXh8tRBfL3pmaO+QufebjnBI5zTmVdoOk/X1iwPac0rNouWX/Rf+heeRSH3/
     1RqZras59ETQHzPk5jKyI8Ool66dXkuZA3NStvjlvVk3TcxB9A8=
     -----END RSA PRIVATE KEY-----
-  internal_cidr:
-  - 127.0.0.1/12
-  - 192.168.0.0/16
 CA:
   private_key: |
     -----BEGIN RSA PRIVATE KEY-----
@@ -182,7 +179,6 @@ Datastore:
   implementation: FileBaseDataStore
   location: /tmp/velociraptor
   filestore_directory: /tmp/velociraptor
-Flows: {}
 Writeback: {}
 Mail: {}
 Logging: {}
