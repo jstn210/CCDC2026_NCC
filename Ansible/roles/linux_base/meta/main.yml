@@ -1,20 +1,6 @@
 galaxy_info:
-  author: perfSONAR
-  description: A perfSONAR role to install the perfsonar-testpoint bundle
-  company: perfSONAR Project
-  license: Apache 2.0
-
-  min_ansible_version: 2.5
-
-  platforms:
-    - name: Rocky
-      versions:
-        - 8
-        - 9
-    - name: AlmaLinux
-      versions:
-        - 8
-        - 9
+  author: unrccdc2026
+  description: A perfSONAR role to install and configure web services on Rocky/AlmaLinux systems.
 
   galaxy_tags:
     - networking
