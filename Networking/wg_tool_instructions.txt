@@ -1,0 +1,4 @@
+added wireguard_install.sh 
+--auto flag to auto setup,
+run no flags for interactive mode
+-h for help with options
