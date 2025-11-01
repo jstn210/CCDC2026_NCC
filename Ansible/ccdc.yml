@@ -1,18 +1,38 @@
-- name: Incident Response (Linux Debian)
+- name: Standard Linux Base Configuration (Debian)
   hosts:
-    - linux
+    - debian_based
+  roles:
+    - linux_debian
+
+- name: Standard Linux Base Configuration (RHEL)
+  hosts:
+    - rhel_based
+  roles:
+    - linux_rhel
+
+- name: Incident Response Client (Linux Debian)
+  hosts:
+    - debian_based
   tags:
     - ir_linux_debian
   roles:
     - ir_linux
 
-- name: Incident Response (Linux RHEL)
+- name: Incident Response Client (Linux RHEL)
   hosts:
-    - linux
+    - rhel_based
   tags:
     - ir_linux_rhel
   roles:
     - ir_linux
+
+- name: Incident Response Client (Windows)
+  hosts:
+    - windows
+  tags:
+    - ir
+  roles:
+    - ir_windows
 
 - name: Incident Response Server
   hosts:
@@ -21,11 +41,3 @@
     - ir_linux_server
   roles:
     - ir_linux
-
-- name: Incident Response (Windows)
-  hosts:
-    - windows
-  tags:
-    - ir
-  roles:
-    - ir_windows
