@@ -9,11 +9,6 @@
   tags:
     - rhel_client
 
-- name: include windows client tasks
-  import_tasks: windows_client.yml
-  tags:
-    - windows_client
-
 - name: include server tasks
   import_tasks: server.yml
   tags:
