@@ -1,7 +1,7 @@
 ---
 - name: Copy Wazuh agent deb package
   copy:
-    src: "wazuh-agent_4.11.1-1_amd64.deb"
+    src: "wazuh-agent_4.14.2-1_amd64.deb"
     dest: "/tmp/wazuh-agent.deb"
 
 - name: Install Wazuh agent
